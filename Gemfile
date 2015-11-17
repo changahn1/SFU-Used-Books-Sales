@@ -7,16 +7,13 @@ gem 'rails', '4.2.4'
 gem 'bootstrap-sass'
 
 gem 'paperclip', '~> 4.1'
-<<<<<<< HEAD
 
-  gem 'devise'
-  gem 'omniauth-twitter'
-  gem 'omniauth-facebook'
-=======
+
+
 gem 'devise'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
->>>>>>> c48e25de1e7633b6fdfea58fc6aa5d3fae9806ba
+
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3'
@@ -69,10 +66,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> c48e25de1e7633b6fdfea58fc6aa5d3fae9806ba
 end
 
