@@ -1,0 +1,31 @@
+<div class="row">
+    
+    <div class ="col-md-4">
+        <%= image_tag @book.avatar.url(:thumb), class:"book-show" %>     
+    </div>
+   
+    <div class ="col-md-8">
+        <div class="book-info">
+            <h2 class="book-title">Title: <%= @book.title %></h2>
+            <h3 class="book-cname">Course name: <%= @book.cname %></h3>
+            <h3 class="book-cnumber">Course number: <%= @book.cnumber %></h3>
+            <h3 class="book-quality">Quality: <%= @book.quality %></h3>
+            <h3 class="book-publisher">Publisher: <%= @book.publisher %></h3>
+            <h3 class="book-campus">SFU campus: <%= @book.campus %></h3>
+            <h3 class="book-price">Price: <%= @book.price %></h3>
+            <h3 class="book-seller">Seller: <%= @book.user_id %></h3>
+        </div>
+    </div>
+</div>
+
+<p></p>
+<%= link_to "Back", root_path, class: "btn btn-primary" %>
+
+<% if user_signed_in? %>
+
+    <% if @book.user_id == current_user.id || current_user.id == 18 %>
+        
+        <%= link_to "Edit", edit_book_path(@book), class: "btn btn-primary" %>
+        <%= link_to "Delete", book_path(@book), class: "btn btn-primary",  method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+<% end %>
