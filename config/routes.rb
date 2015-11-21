@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   root to: 'books#index'
   
+<<<<<<< HEAD
   resources :books do
     resources :reviews
   end
+=======
+  resources :books
+>>>>>>> 9154163c9b2d4d3cf0133f712980f740a3d38c25
 
   get    'about'   => 'static_pages#about'
   get    'contact' => 'static_pages#contact'
