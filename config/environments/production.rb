@@ -79,9 +79,5 @@ Rails.application.configure do
   
   config.action_mailer.default_url_options = { host: 'https://complete-login.herokuapp.com/' }
   
-<<<<<<< HEAD
- # Paperclip.options[:command_path] = "/usr/bin/convert"
-=======
-  Paperclip.options[:command_path] = "/usr/bin/"
->>>>>>> 9154163c9b2d4d3cf0133f712980f740a3d38c25
+ Paperclip.options[:command_path] = "/usr/bin/"
 end
