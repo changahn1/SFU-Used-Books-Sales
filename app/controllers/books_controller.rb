@@ -15,11 +15,8 @@ class BooksController < ApplicationController
     
     def create 
         @book = current_user.books.build(book_params)
-<<<<<<< HEAD
         @book.user_username = current_user.username
         @book.user_email = current_user.email
-=======
->>>>>>> 9154163c9b2d4d3cf0133f712980f740a3d38c25
         
         if @book.save
             redirect_to root_path

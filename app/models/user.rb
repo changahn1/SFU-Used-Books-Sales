@@ -1,18 +1,11 @@
 class User < ActiveRecord::Base
   has_many :books
-<<<<<<< HEAD
   has_many :reviews
-=======
->>>>>>> 9154163c9b2d4d3cf0133f712980f740a3d38c25
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
    # existing code
 
-<<<<<<< HEAD
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100" }, :default_url => "/images/:style/missing.png"
-=======
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
->>>>>>> 9154163c9b2d4d3cf0133f712980f740a3d38c25
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   
   devise :database_authenticatable, :registerable, :omniauthable,
