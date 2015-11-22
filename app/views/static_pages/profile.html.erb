@@ -7,6 +7,7 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <ul>
+        <strong>Avatar:</strong><li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
          <li><strong>Username:</strong> <%= current_user.username %></li>
         <li><strong>Email:</strong> <%= current_user.email %></li>
         
@@ -18,3 +19,4 @@
 <% else %>
   <%= render 'welcome' %>
 <% end %>
+
