@@ -1,0 +1,22 @@
+<h1>Profile</h1>
+<% if current_user %>
+
+  <div class="page-header">
+    <h1>Here is some info about you...</h1>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <ul>
+        <strong>Avatar:</strong><li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
+         <li><strong>Username:</strong> <%= current_user.username %></li>
+        <li><strong>Email:</strong> <%= current_user.email %></li>
+        
+        <li><strong>ID:</strong> <%= current_user.id %></li>
+
+      </ul>
+    </div>
+  </div>
+<% else %>
+  <%= render 'welcome' %>
+<% end %>
+
