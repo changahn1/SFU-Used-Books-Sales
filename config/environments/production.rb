@@ -79,5 +79,6 @@ Rails.application.configure do
   
   config.action_mailer.default_url_options = { host: 'https://completed.herokuapp.com/' }
   
+  
  Paperclip.options[:command_path] = "/usr/bin/"
 end

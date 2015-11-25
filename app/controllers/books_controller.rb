@@ -17,6 +17,7 @@ class BooksController < ApplicationController
     def new
         @book = current_user.books.build
         @departments = Department.all.map {|c| [c.name, c.id]}
+       
     end
     
     def create 
@@ -24,7 +25,7 @@ class BooksController < ApplicationController
         @book.department_id = params[:department_id]
         @book.user_username = current_user.username
         @book.user_email = current_user.email
-        
+       
         if @book.save
             redirect_to root_path
         else
@@ -33,13 +34,17 @@ class BooksController < ApplicationController
     end
     
     def edit
+          
         @departments = Department.all.map {|c| [c.name, c.id]}
+      
         
     end
     
     def update
-        @book.department_id = params[:department_id]
+        @book.department_id = params[:department_id] 
         if @book.update(book_params)
+               
+           
             redirect_to book_path(@book)
         else
             render 'edit'
