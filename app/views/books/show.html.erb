@@ -18,14 +18,13 @@
         <div class="book-info">
             
             <h3 class="book-title">Title: <%= @book.title %></h3>
-            <h4 class="book-cname">Department name: <%= @book.department.name %></h4>
             <h4 class="book-cnumber">Course number: <%= @book.cnumber %></h4>
             <h4 class="book-quality">Quality: <%= @book.quality %></h4>
             <h4 class="book-publisher">Publisher: <%= @book.publisher %></h4>
             <h4 class="book-campus">SFU campus: <%= @book.campus %></h4>
             <h4 class="book-price">Price: <%= @book.price %></h4>
             ------------------------------Seller's information--------------------------
-            <h4 class="book-seller">Seller ID: <%= @book.user_id %></h4> 
+        
             <h4 class="book-username">Username: <%= @book.user_username %></h4>
             <h4 class="book-email">Email: <%= @book.user_email %></h4>
             
@@ -36,9 +35,11 @@
              <p></p>
              <div class="book-info">
             <%= render @book.reviews %>
+             <% if user_signed_in? %>
             <div>
                 <%=link_to "Add Comment", new_book_review_path(@book), class: "btn btn-primary"  %>
             </div>
+            <%end%>
             </div>
         </div>
 </div>

@@ -2,29 +2,33 @@ class BooksController < ApplicationController
     before_action :find_book, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!, only: [:new, :edit]
     
-    def index 
-        if params[:department].blank?
-            @books = Book.all.order("created_at DESC")
+    def index
+        if !params[:department].blank?
+          @department_id = Department.find_by(name: params[:department]).id
+          @books = Book.where(:department_id => @department_id).order("created_at DESC")
         else
-            @department_id = Department.find_by(name: params[:department]).id
-            @books = Book.where(:department_id => @department_id).order("created_at DESC")
+          @books = Book.all.order("created_at DESC")
+        end
+        if params[:cnumber]; params[:title]; params[:department]
+          @books = Book.where('title LIKE ? and cnumber LIKE ? and cname LIKE ?', "%#{params[:title]}%", "%#{params[:cnumber]}%", "%#{params[:department]}%") 
         end
     end
-    
+
     def show
     end
-    
+
     def new
         @book = current_user.books.build
         @departments = Department.all.map {|c| [c.name, c.id]}
        
     end
-    
-    def create 
+
+    def create
         @book = current_user.books.build(book_params)
         @book.department_id = params[:department_id]
         @book.user_username = current_user.username
         @book.user_email = current_user.email
+        @book.cname = @book.department.name
        
         if @book.save
             redirect_to root_path
@@ -36,14 +40,14 @@ class BooksController < ApplicationController
     def edit
           
         @departments = Department.all.map {|c| [c.name, c.id]}
-      
+        
         
     end
     
     def update
         @book.department_id = params[:department_id] 
         if @book.update(book_params)
-               
+           
            
             redirect_to book_path(@book)
         else
@@ -59,7 +63,7 @@ class BooksController < ApplicationController
     private
     
     def book_params
-       params.require(:book).permit(:avatar, :title, :cname, :cnumber, :quality, :publisher, :campus, :price, :category_id) 
+       params.require(:book).permit(:avatar, :title, :cname, :cnumber, :quality, :publisher, :campus, :price, :department_id) 
     end
     
     def find_book
