@@ -38,16 +38,14 @@ class BooksController < ApplicationController
     end
     
     def edit
-          
         @departments = Department.all.map {|c| [c.name, c.id]}
-        
-        
     end
     
     def update
         @book.department_id = params[:department_id] 
         if @book.update(book_params)
-           
+               
+   
            
             redirect_to book_path(@book)
         else

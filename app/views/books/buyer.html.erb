@@ -1,8 +1,6 @@
-<% if current_user %>
-
 <ul class="nav navbar-nav pull-left">
 <li class = "dropdown">
-        <a href="#" class = "btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Department<span class = "caret"></span></a>
+        <a href="#" class = "btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Departments<span class = "caret"></span></a>
           <ul class="dropdown-menu" role="menu">
         <% Department.all.each do |department| %>
         <li>
@@ -15,12 +13,14 @@
 </ul>
 
 </br></br>
-
+<% if !params[:department].blank? %>
+</br>
+<h1 class="current-department"> Department: <%= params[:department] %></h1>
+<% end %>
 
 
 
 <% if !params[:department].blank? %>
-<h1 class="current-department"> Department: <%= params[:department] %></h1>
 <h3>Enter one or more of the following fields:</h3>
 <% end %>
 <%= form_tag books_path, method: :get do %>
@@ -38,8 +38,7 @@
 <% end %>
 </br></br>
 
-  <%= link_to "Add Book", new_book_path, class: "btn btn-primary" %>
-  <p></p>
+
   <div class="row">
   <% @books.each do |book| %>
     <div class = "col-md-3">
@@ -49,9 +48,4 @@
     </div>
 
 <% end %>
-  </div> 
-
-
-<% else %>
-  <%= render 'welcome' %>
-<% end %>
+  </div>

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :books do
     resources :reviews
   end
-
+  
+  #get    'buyer'   => 'books#buyer'
+  #get    'seller'  => 'static_pages#seller'
   get    'about'   => 'static_pages#about'
   get    'contact' => 'static_pages#contact'
   get    'profile' => 'static_pages#profile'
