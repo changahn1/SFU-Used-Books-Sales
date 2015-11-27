@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
     before_action :find_book, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user!, only: [:new, :edit]
+    before_action :authenticate_user!, only: [:new, :edit, :buyer]
     
     def index
         if !params[:department].blank?
@@ -10,10 +10,23 @@ class BooksController < ApplicationController
           @books = Book.all.order("created_at DESC")
         end
         if params[:cnumber]; params[:title]; params[:department]
-          @books = Book.where('title LIKE ? and cnumber LIKE ? and cname LIKE ?', "%#{params[:title]}%", "%#{params[:cnumber]}%", "%#{params[:department]}%") 
+          @books = Book.where('title LIKE ? and cnumber LIKE ? and cname LIKE ?', "%#{params[:title]}%", "%#{params[:cnumber]}%", "%#{params[:department]}%", "%#{params[:username]}%") 
+        end
+        if params[:username]
+          @books = Book.where('user_username LIKE ? or title LIKE ?', "%#{params[:username]}%", "%#{params[:username]}%")
         end
     end
-
+    
+    def buyer
+         
+         if !params[:department].blank?
+          @department_id = Department.find_by(name: params[:department]).id
+          @books = Book.where(:department_id => @department_id).order("created_at DESC")
+        else
+          @books = Book.all.order("created_at DESC")
+         end
+    end
+    
     def show
     end
 

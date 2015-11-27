@@ -85,6 +85,20 @@ p.alert, p.notice {
 
 }
 
+.dropdown-menu-depart {
+	position: absolute;
+    left: 1033px;
+}
+
+.search-bar {
+	padding-top: 11px;
+	padding-right: 5px;
+}
+
+.home-btn {
+	padding-left: 121px;
+}
+
 .dropdown-menu > .active > a {
 	background-color: #f1c40f;
 	color: #fff;
@@ -199,6 +213,10 @@ p.alert, p.notice {
 
 .current-category {
 	margin-bottom: 40px;
+}
+
+.current-department {
+	font-size: 4em;
 }
 
 
