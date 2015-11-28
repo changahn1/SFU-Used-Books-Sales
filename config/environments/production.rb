@@ -85,7 +85,14 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   
-  
+  ActionMailer::Base.smtp_settings = {
+                    :address        => "smtp.gmail.com",
+                    :port           => 587,
+                    :authentication => :plain,
+                    :user_name      => "changyook@gmail.com",
+                    :password       => "112612251010",
+                    :openssl_verify_mode  => 'none'
+  } 
   
  Paperclip.options[:command_path] = "/usr/bin/"
 end

@@ -241,7 +241,7 @@ Devise.setup do |config|
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
-  #
+  config.secret_key = '8dd5b812364f4a4e362efebd68001d2e0f4ae0b41fa00dc95041db775d3a563f92dbe49d05f02481ffd48fe8d5ae2003d353c53f20839a4d6c60e46c95dd0039'
   # config.warden do |manager|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
