@@ -9,8 +9,8 @@ class BooksController < ApplicationController
         else
           @books = Book.all.order("created_at DESC")
         end
-        if params[:cnumber]; params[:title]; params[:department]
-          @books = Book.where('title LIKE ? and cnumber LIKE ? and cname LIKE ?', "%#{params[:title]}%", "%#{params[:cnumber]}%", "%#{params[:department]}%", "%#{params[:username]}%") 
+        if params[:cnumber]; params[:department]
+          @books = Book.where('cnumber LIKE ? and cname LIKE ?', "%#{params[:cnumber]}%", "%#{params[:department]}%")
         end
         if params[:username]
           @books = Book.where('user_username LIKE ? or title LIKE ?', "%#{params[:username]}%", "%#{params[:username]}%")

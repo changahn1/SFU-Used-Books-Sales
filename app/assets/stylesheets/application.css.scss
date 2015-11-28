@@ -87,7 +87,13 @@ p.alert, p.notice {
 
 .dropdown-menu-depart {
 	position: absolute;
-    left: 1033px;
+    left: -15px;
+    
+    .dropdown-menu-depart > a:hover {
+    	background-color: darken(#f1c40f, 5%);
+		color: #fff;
+    }
+    
 }
 
 .search-bar {

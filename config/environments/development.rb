@@ -14,7 +14,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -35,10 +35,23 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
+  
+ 
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.action_mailer.default_url_options = { host: 'https://new-devise-changahn1.c9users.io' }
+  config.action_mailer.default_url_options = { host: 'https://bookstore-heroku-changahn1.c9users.io' }
+  
+  config.action_mailer.delivery_method = :smtp
+  
+  ActionMailer::Base.smtp_settings = {
+                    :address        => "smtp.gmail.com",
+                    :port           => 587,
+                    :authentication => :plain,
+                    :user_name      => "changyook@gmail.com",
+                    :password       => "112612251010",
+                    :openssl_verify_mode  => 'none'
+  } 
   
   Paperclip.options[:command_path] = "/usr/bin/"
 end

@@ -7,9 +7,9 @@
 <%= hidden_field_tag :department, params[:department], class: 'form-control' %>
 
 <% if !params[:department].blank? %>
-<%= text_field_tag :cnumber, params[:cnumber], placeholder: 'Three Digit Course Number' %>
+<%= text_field_tag :cnumber, params[:cnumber], placeholder: 'Three Digit Course #' %>
 
-<%= submit_tag "Search", name: nil,class: "btn btn-primary" %>
+<%= submit_tag "Search", name: nil %>
 <% end %>
 <% end %>
 </br></br>

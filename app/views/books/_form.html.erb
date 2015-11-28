@@ -1,7 +1,12 @@
+
 <%= simple_form_for @book, :html => {:multipart => true} do |f| %>
     <%= f.file_field :avatar %>
+    <p></p>
     <%= f.input :title, label: "Book Title" %>
+    <strong>Department name</strong>
+    <p></p>
     <%= select_tag(:department_id, options_for_select(@departments), :prompt =>"Select a department") %>
+    <p></p>
     <%= f.input :cnumber, label: "Course Number" %>
     <%= f.input :quality, label: "Book Quality" %>
     <%= f.input :publisher, label: "Book Publisher" %>
