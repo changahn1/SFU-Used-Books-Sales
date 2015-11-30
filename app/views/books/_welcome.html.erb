@@ -15,7 +15,7 @@
 <% end %>
 <%= form_tag books_path, method: :get do %>
 <strong>Department Name</strong>
-<%= text_field_tag :department, params[:department], class: 'form-control' %>
+<%= text_field_tag :department, params[:department], class: 'form-control', placeholder: 'i.e. CMPT' %>
 
 <strong>Course Number</strong>
 <%= text_field_tag :cnumber, params[:cnumber], class: 'form-control', placeholder: 'Three Digit Course #' %>
