@@ -4,6 +4,7 @@ class BooksController < ApplicationController
     
     def index
         if !params[:department].blank? 
+        
           @department_id = Department.find_by(name: params[:department]).id
           @books = Book.where(:department_id => @department_id).order("created_at DESC")
         else
