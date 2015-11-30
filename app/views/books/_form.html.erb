@@ -16,7 +16,7 @@
         <%= f.file_field :avatar %>
         <p></p>
         <%= f.input :title, label: "Book Title" %>
-        <strong>Department name</strong>
+        <strong>*Department name</strong>
         <p></p>
         <%= select_tag(:department_id, options_for_select(@departments), :prompt => "Select a department") %>
 

@@ -11,10 +11,12 @@
        
     </ul>
     <% else %>
+        <strong>Book picture</strong>
+        <p></p>
         <%= f.file_field :avatar %>
         <p></p>
         <%= f.input :title, label: "Book Title" %>
-        <strong>Department name</strong>
+        <strong>*Department name</strong>
         <p></p>
         <%= f.select :department_id, @departments %>
 
