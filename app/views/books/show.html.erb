@@ -9,7 +9,7 @@
   
         <% if user_signed_in? %>
 
-            <% if @book.user_id == current_user.id || current_user.id == 1 %>
+            <% if @book.user_id == current_user.id || current_user.id == 8 %>
                
                 <%= link_to "Edit", edit_book_path(@book), class: "btn btn-primary" %>
                 <%= link_to "Delete", book_path(@book), class: "btn btn-primary",  method: :delete, data: { confirm: "Are you sure?" } %>
@@ -31,7 +31,7 @@
             <h4 class="book-username">Username: <%= @book.user_username %></h4>
             <h4 class="book-email">Email: <%= @book.user_email %></h4>
         
-            <h4><a href="https://bookstore-heroku-changahn1.c9users.io/books?utf8=%E2%9C%93&username=<%= @book.user_username%>">View all books</a>
+            <h4><a href="https://bookstore-heroku-changahn1.c9users.io/books?utf8=%E2%9C%93&username=<%= @book.user_username%>">View all my books</a>
             </h4>
             
             
@@ -54,4 +54,5 @@
        
     
 
-<p></p>
+  
+     

@@ -3,7 +3,7 @@ class BooksController < ApplicationController
     before_action :authenticate_user!, only: [:new, :edit, :buyer]
     
     def index
-        if !params[:department].blank?
+        if !params[:department].blank? 
           @department_id = Department.find_by(name: params[:department]).id
           @books = Book.where(:department_id => @department_id).order("created_at DESC")
         else
@@ -32,8 +32,11 @@ class BooksController < ApplicationController
         @book.department_id = params[:department_id]
         @book.user_username = current_user.username
         @book.user_email = current_user.email
-        @book.cname = @book.department.name
-       
+        
+        if @book.department_id?
+            @book.cname = @book.department.name
+        end
+        
         if @book.save
             redirect_to root_path
         else
@@ -48,9 +51,6 @@ class BooksController < ApplicationController
     def update
         @book.department_id = params[:department_id] 
         if @book.update(book_params)
-               
-   
-           
             redirect_to book_path(@book)
         else
             render 'edit'

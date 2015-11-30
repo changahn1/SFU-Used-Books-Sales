@@ -3,16 +3,17 @@ class Book < ActiveRecord::Base
     belongs_to :department
     has_many :reviews
     
-    has_attached_file :avatar, :styles => { :medium => "250x350>", :thumb => "325x475" }, :default_url => "/images/:style/missing.png"
+    has_attached_file :avatar, :styles => { :medium => "250x350>", :thumb => "325x475" }, :default_url => "bookcover.jpg"
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
     
-    validates_presence_of :title
-    validates_presence_of :cnumber
-    validates_presence_of :quality
-    validates_presence_of :publisher
-    validates_presence_of :campus
-    validates_presence_of :price
-    validates_presence_of :department_id
+    validates :title, :cnumber, :quality, :publisher, :department_id, :price, :campus, :presence => true
+    #validates_presence_of :cnumber, :message => "can't be empty"  
+    validates :cnumber, :length => {:is => 3}
+    validates_format_of :quality, :campus, :with => /[A-a-Z-z]+/
+    
+    def self.human_attribute_name(attr, options = {})
+        attr == :cnumber ? 'Course Number' : super
+    end
     
 end
 

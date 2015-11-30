@@ -9,8 +9,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="navbar">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+      <a href="#" class = "btn btn-primary dropdown-toggle" data-toggle="dropdown">Department<b class = "caret"></b></a>
+          <ul class="dropdown-menu-depart dropdown-menu pull-left">
+            <% Department.all.each do |department| %>
+              <li>
+                  <%= link_to department.name, books_path(department: department.name), class:"link" %>
+              </li>
+             <% end %>
+          </ul>
+      </li>
+    </ul>
+  </div>
 
   <%= render 'layouts/header' %>
+  
  
   <div class="container">
     <% flash.each do |key, value| %>

@@ -1,4 +1,10 @@
-<h1>Profile</h1>
+<% provide(:title,"PROFILE") %>
+<% provide(:name,"PROFILE") %>
+
+<h1> 
+	<%= yield (:name) %>
+</h1>
+
 <% if current_user %>
 
   </br>
@@ -14,7 +20,6 @@
       </ul>
     </div>
   </div>
-<% else %>
-  <%= render 'welcome' %>
+
 <% end %>
 

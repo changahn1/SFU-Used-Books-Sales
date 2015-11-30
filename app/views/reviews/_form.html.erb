@@ -1,4 +1,15 @@
 <%= simple_form_for([@book, @book.reviews.build]) do |f|%>
+
+    <% if @review.errors.any? %>
+    <h1>Please fix the following error(s).</h1>
+    <ul>
+        <% @review.errors.full_messages.each do |message| %>
+        
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+    <% else %>
     <%= f.input :comment %>
     <%= f.button :submit, "Submit comment" %>
+    <% end %>
 <% end %>
