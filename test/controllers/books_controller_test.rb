@@ -12,9 +12,11 @@ class BooksControllerTest < ActionController::TestCase
   
  
  
+
+ 
    test "should find cname and cnumber" do 
-    get(:index, params:{cnumber: 2760, department:'CMPT' })
+    get(:index, params:{department:1 })
     assert_response :success
-    assert_includes @response.body, 'There are no books currently'
+    assert_includes @response.body, '106'
   end
 end

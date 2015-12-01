@@ -4,8 +4,17 @@ class ReviewTest < ActiveSupport::TestCase
  test "the truth" do
      assert true
  end
+ 
 
-test 'should require review to be set' do
+  test 'valid comment can be saved' do
+    @review = Review.create(comment: 'Hello, world!')
+    assert @review.valid?
+    assert @review.save
+  end
+
+
+  
+  test 'should require review to be set' do
     @review = Review.create(comment: nil)
     assert  @review.invalid?
     assert  @review.errors[:comment]

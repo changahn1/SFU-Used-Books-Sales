@@ -72,7 +72,9 @@
 
 </br></br></br>
 <% if !params[:department].blank? %>
+<div class = "center jumbotron">
 <h1 class="current-department"> <%= params[:department] %></h1>
+</div>
 <% end %>
 <%= form_tag books_path, method: :get do %>
 <%= hidden_field_tag :department, params[:department], class: 'form-control' %>

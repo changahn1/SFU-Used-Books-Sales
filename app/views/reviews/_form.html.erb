@@ -1,5 +1,6 @@
+<div class = "center jumbotron">
 <%= simple_form_for([@book, @book.reviews.build]) do |f|%>
-
+   
     <% if @review.errors.any? %>
     <h1>Please fix the following error(s).</h1>
     <ul>
@@ -13,3 +14,4 @@
     <%= f.button :submit, "Submit comment" %>
     
 <% end %>
+</div>
