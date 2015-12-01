@@ -39,7 +39,7 @@ class BooksControllerTest < ActionController::TestCase
    
       delete :destroy, id: Book.first.id
   
-    assert_redirected_to root_path
+    assert_redirected_to user_session_path
   end
  
 
@@ -53,7 +53,7 @@ class BooksControllerTest < ActionController::TestCase
                                               campus: Book.first.campus,
                                               price: Book.first.price,
                                               department_id: Book.first.department_id }
-    assert_redirected_to root_path # event_path(assigns(:event))
+    assert_redirected_to user_session_path # event_path(assigns(:event))
   end
   
 
