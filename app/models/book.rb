@@ -9,7 +9,7 @@ class Book < ActiveRecord::Base
     validates :title, :cnumber, :quality, :publisher, :department_id, :price, :campus, :presence => true
     #validates_presence_of :cnumber, :message => "can't be empty"  
     validates :cnumber, :length => {:is => 3}
-    validates_format_of :quality, :campus, :with => /[a-z]+/
+    validates_format_of :quality, :campus, :with => /[a-zA-Z]*/
     
     def self.human_attribute_name(attr, options = {})
         attr == :cnumber ? 'Course Number' : super
