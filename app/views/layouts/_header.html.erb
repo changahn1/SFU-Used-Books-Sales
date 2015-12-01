@@ -1,3 +1,7 @@
+
+
+<!-- HEADER BAR -->
+<!--Embedded buttons in header bar-->
 <header class="navbar navbar-inverse">
   <div class="container">
     
@@ -15,6 +19,7 @@
       
        <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
        
+         <!--User dropdown to view profile information, books they have added, logout button, or to change their settings-->
          <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= current_user.username %> <b class="caret"></b>
@@ -40,7 +45,7 @@
         </ul>
       <% end %>
     </div>
-   
+   <!--Search bar for book title or user name - Displays books with title entered or created by user from username entered-->
     <ul class= "nav navbar-nav search-bar pull-left">
     <%= form_tag books_path, method: :get do %>
     <%= text_field_tag :username, params[:username], placeholder: 'Username or Book Title' %>
@@ -55,10 +60,7 @@
    
         
       <ul class="nav navbar-nav pull-right">
-    
       <li><%= link_to "Home",   root_path,  class: 'navbar-brand' %>
-    
-      
       <%= link_to "About",   about_path,  class: 'navbar-brand' %>
       <%= link_to "Contact",   contact_path,  class: 'navbar-brand' %>
       

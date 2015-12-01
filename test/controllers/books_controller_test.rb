@@ -10,6 +10,7 @@ class BooksControllerTest < ActionController::TestCase
     assert_response :success
   end
   
+  
   test "should find username" do 
     get :index, params: { username:"demo" }
     assert_response :success

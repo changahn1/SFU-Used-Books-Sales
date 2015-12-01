@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get    'contact' => 'static_pages#contact'
   get    'profile' => 'static_pages#profile'
   get    'login'   => 'sessions#new'
-  
+ 
   
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
