@@ -14,7 +14,7 @@ class BooksController < ApplicationController
         
         # Check if a cnumber has been entered and display all books from that department and cnumber
         if params[:cnumber]; params[:department]
-          @books = Book.where('cnumber LIKE ? and cname LIKE ?', "%#{params[:cnumber]}%", "%#{params[:department]}%")
+          @books = Book.where('cast(cnumber as text) LIKE ? and cname LIKE ?', "%#{params[:cnumber]}%", "%#{params[:department]}%")
         end
         # Check if a user name or book title is entered in the form - display books from that user or with the book title 
         if params[:username]
