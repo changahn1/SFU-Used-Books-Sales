@@ -8,6 +8,7 @@ class ReviewTest < ActiveSupport::TestCase
 
   test 'valid comment can be saved' do
     @review = Review.create(comment: 'Hello, world!')
+    assert_response :success
     assert @review.valid?
     assert @review.save
   end

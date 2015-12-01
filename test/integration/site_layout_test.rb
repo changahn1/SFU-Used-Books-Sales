@@ -64,10 +64,17 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
    test 'login and browse site' do
     get_via_redirect user_session_path
     assert_response :success
+   end
     
+   
+  
+  test "should not get new" do
+    get_via_redirect new_book_review_path(book_id: Book.first.id )
+    assert_response:success
+  end
   
     
-   end
+   
   
 
 end
