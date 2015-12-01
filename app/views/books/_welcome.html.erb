@@ -1,26 +1,6 @@
-
-<!--WELCOME DISPLAY-->
-<!--Provide user with different sign up options and the login button-->
-
-<div class = "center jumbotron">
-  <h1>Welcome to SFU Used Books</h1>
-  <p>This app provides you with a platform for buying/selling SFU books.</p>
-  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "Sign up using facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-lg btn-primary" %>
-  <p></p>
-  or <%= link_to "Sign up using Twitter", user_omniauth_authorize_path(:twitter) %>.
-  
-  Already a member? <%= link_to "Click here to login",   new_user_session_path %>
-</div>
-
-<!-------------------------------------------------------------------------------------------------------------------------------------->
-
 <!--BUYING BOOKS-->
 <!--First user selects a department and then the course number field will unhide for a more detailed search-->
-
 <h2 id = "sections"> Buying a Book? </h2>
-<%= form_tag books_path, method: :get do %>
-
 <ul class="nav navbar-nav">
   <li class = "dropdown">
           <a href="#" class = "btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Departments<span class = "caret"></span></a>
@@ -35,38 +15,40 @@
 </ul>
 
 </br></br></br>
-<div>
 <% if !params[:department].blank? %>
-  <h1 class="current-department"> <%= params[:department] %></h1>
+<h1><p style="color:white;"><class="current-department"> <%= params[:department] %></p></h1>
 <% end %>
-</div>
 
+<%= form_tag books_path, method: :get do %>
+<%= hidden_field_tag :department, params[:department], class: 'form-control' %>
 
 <!--Hide course number search until user has selected a department!-->
 <% if !params[:department].blank? %>
-<strong>Course Number</strong>
-<%= text_field_tag :cnumber, params[:cnumber], class: 'form-control', placeholder: 'Three Digit Course #' %>
-</br>
+<%= text_field_tag :cnumber, params[:cnumber], placeholder: 'Three Digit Course #' %>
+
 <%= submit_tag "Search", name: nil %>
-<% end %> 
+<% end %>
 <% end %>
 
 <!-------------------------------------------------------------------------------------------------------------------------------------->
 
 <!--DISPLAY BOOKS-->
 <!--If there are no books up for sale alert user with message, otherwise list books in 4 columns-->
+
 <% if @books.count == 0 %>
+  <h1><p style="color:white;">There are no books currently</p></h1>
 
-	<h1>There are no books currently</h1>
-	<%= link_to "Add Book", new_book_path, class: "btn btn-primary" %>
-
+  <%= link_to "Add Book", new_book_path, class: "btn btn-primary" %>
+  </div>
+  </div>
 <% else %>
 
 <h2 id = "sections"> Selling a Book? </h2>
   <%= link_to "Add Book", new_book_path, class: "btn btn-primary" %>
-<h2 id = "sections">Recently Added Books</h2>
+  <h2 id = "sections">Recently Added Books</h2>
 <% end %>
 
+  
   
 </br></br>
 
@@ -81,4 +63,4 @@
 <% end %>
   </div> 
 
-<!-------------------------------------------------------------------------------------------------------------------------------------->
+
