@@ -10,8 +10,24 @@ class BooksControllerTest < ActionController::TestCase
     assert_response :success
   end
   
+  test "should find username" do 
+    get :index, params: { username:"demo" }
+    assert_response :success
+  end
   
-  
+  test "should find title" do 
+    get :index, params: { title:"Software Engineering" }
+    assert_response :success
+  end
+ 
+  test "should find department" do 
+    get :index, params: { department: 1 }
+    assert_response :success
+  end
+  test "should find cname and cnumber" do 
+    get :index, params: { cname:"CMPT", cnumber:276 }
+    assert_response :success
+  end
   test "should not get edit" do
     get :edit, id: Book.first.id
     assert_redirected_to user_session_path
