@@ -30,7 +30,7 @@
       </h4>
     </div>
     <div class="item">
-      <h4><img class="img-responsive center-block" src="http://ecx.images-amazon.com/images/I/51dqadCuRiL._SX258_BO1,204,203,200_.jpg" alt="UI" "width:250px; height:350px"><span style="font-style:normal;"><br><br><br><br></span></h4>
+      <h4><img class="img-responsive center-block" src="http://i.imgur.com/6MBGHZk.png" alt="UI" style="width:250px; height:350px"><span style="font-style:normal;"><br><br><br><br></span>
 
 		<div class="carousel-caption">
           
@@ -38,7 +38,7 @@
 
     </div>
 
- 
+ </h4>
 
 
   </div>
@@ -57,11 +57,6 @@
 
 
 <h2 id = "sections"> Buying a Book? </h2>
-<% if !params[:department].blank? %>
-  <h1 class="current-department"> <%= params[:department] %></h1>
-<% end %>
-<%= form_tag books_path, method: :get do %>
-
 <ul class="nav navbar-nav">
   <li class = "dropdown">
           <a href="#" class = "btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Departments<span class = "caret"></span></a>
@@ -75,19 +70,20 @@
   </li>
 </ul>
 
-
-<br> </br>
-
+</br></br></br>
+<% if !params[:department].blank? %>
+<h1 class="current-department"> <%= params[:department] %></h1>
+<% end %>
+<%= form_tag books_path, method: :get do %>
+<%= hidden_field_tag :department, params[:department], class: 'form-control' %>
 
 <% if !params[:department].blank? %>
-<br></br>
-<strong>Course Number</strong>
-<%= text_field_tag :cnumber, params[:cnumber], class: 'form-control', placeholder: 'Three Digit Course #' %>
-</br>
-<%= submit_tag "Search", name: nil %>
-<% end %> 
+<%= text_field_tag :cnumber, params[:cnumber], placeholder: 'Three Digit Course #' %>
 
+<%= submit_tag "Search", name: nil %>
 <% end %>
+<% end %>
+
 
 <% if @books.count == 0 %>
 
@@ -98,9 +94,10 @@
 
 <h2 id = "sections"> Selling a Book? </h2>
   <%= link_to "Add Book", new_book_path, class: "btn btn-primary" %>
-<h2 id = "sections">Recently Added Books</h2>
+  <h2 id = "sections">Recently Added Books</h2>
 <% end %>
 
+  
   
 </br></br>
 
@@ -119,5 +116,3 @@
 <% else %>
   <%= render 'welcome' %>
 <% end %>
-
-

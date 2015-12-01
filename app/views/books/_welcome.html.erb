@@ -10,31 +10,39 @@
 </div>
 
 <h2 id = "sections"> Buying a Book? </h2>
-<% if !params[:department].blank? %>
-<h1 class="current-department"> <%= params[:department] %></h1>
-<% end %>
 <%= form_tag books_path, method: :get do %>
-<strong>Department Name</strong>
-<%= text_field_tag :department, params[:department], class: 'form-control', placeholder: 'i.e. CMPT' %>
 
+<ul class="nav navbar-nav">
+  <li class = "dropdown">
+          <a href="#" class = "btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Departments<span class = "caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <% Department.all.each do |department| %>
+                <li>
+                  <%= link_to department.name, books_path(department: department.name), class:"link" %>
+                </li>
+                <% end %>
+            </ul>
+  </li>
+</ul>
+
+</br></br></br>
+<div>
+<% if !params[:department].blank? %>
+  <h1 class="current-department"> <%= params[:department] %></h1>
+<% end %>
+</div>
+
+
+
+<% if !params[:department].blank? %>
 <strong>Course Number</strong>
 <%= text_field_tag :cnumber, params[:cnumber], class: 'form-control', placeholder: 'Three Digit Course #' %>
-
+</br>
 <%= submit_tag "Search", name: nil %>
+<% end %> 
 
 <% end %>
-<ul class="nav navbar-nav pull-right">
-<li class = "dropdown">
-        <a href="#" class = "btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Departments<span class = "caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-        <% Department.all.each do |department| %>
-        <li>
-          <%= link_to department.name, books_path(department: department.name), class:"link" %>
-        </li>
-        <% end %>
-          </ul>
-</li>
-</ul>
+
 <% if @books.count == 0 %>
 
 	<h1>There are no books currently</h1>
@@ -44,10 +52,9 @@
 
 <h2 id = "sections"> Selling a Book? </h2>
   <%= link_to "Add Book", new_book_path, class: "btn btn-primary" %>
-  <h2 id = "sections">Recently added books by other users.</h2>
+<h2 id = "sections">Recently Added Books</h2>
 <% end %>
 
-  
   
 </br></br>
 
