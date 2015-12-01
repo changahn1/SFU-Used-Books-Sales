@@ -5,7 +5,10 @@ class ReviewsControllerTest < ActionController::TestCase
      assert true
    end
    
-  
+  test "should not get edit" do
+    get :edit, reviews: "reviews", id: Book.first.id
+    assert_redirected_to user_session_path
+  end
 
  
    test "should create book" do
