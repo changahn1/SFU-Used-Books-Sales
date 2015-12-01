@@ -68,7 +68,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     
    
   
-  test "should not get new" do
+  test "should get new" do
     get_via_redirect new_book_review_path(book_id: Book.first.id )
     assert_response:success
   end
