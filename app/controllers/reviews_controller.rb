@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
         @review = Review.new
     end
     
+    # Create a new comment - set the user id to the comment to identify who said what 
     def create 
         @review = Review.new(review_params)
         @review.book_id = @book.id

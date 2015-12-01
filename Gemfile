@@ -13,7 +13,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
-
+gem 'colorize'
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3'

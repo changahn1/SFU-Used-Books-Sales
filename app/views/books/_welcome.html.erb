@@ -1,3 +1,7 @@
+
+<!--WELCOME DISPLAY-->
+<!--Provide user with different sign up options and the login button-->
+
 <div class = "center jumbotron">
   <h1>Welcome to SFU Used Books</h1>
   <p>This app provides you with a platform for buying/selling SFU books.</p>
@@ -8,6 +12,11 @@
   
   Already a member? <%= link_to "Click here to login",   new_user_session_path %>
 </div>
+
+<!-------------------------------------------------------------------------------------------------------------------------------------->
+
+<!--BUYING BOOKS-->
+<!--First user selects a department and then the course number field will unhide for a more detailed search-->
 
 <h2 id = "sections"> Buying a Book? </h2>
 <%= form_tag books_path, method: :get do %>
@@ -33,16 +42,19 @@
 </div>
 
 
-
+<!--Hide course number search until user has selected a department!-->
 <% if !params[:department].blank? %>
 <strong>Course Number</strong>
 <%= text_field_tag :cnumber, params[:cnumber], class: 'form-control', placeholder: 'Three Digit Course #' %>
 </br>
 <%= submit_tag "Search", name: nil %>
 <% end %> 
-
 <% end %>
 
+<!-------------------------------------------------------------------------------------------------------------------------------------->
+
+<!--DISPLAY BOOKS-->
+<!--If there are no books up for sale alert user with message, otherwise list books in 4 columns-->
 <% if @books.count == 0 %>
 
 	<h1>There are no books currently</h1>
@@ -68,3 +80,5 @@
 
 <% end %>
   </div> 
+
+<!-------------------------------------------------------------------------------------------------------------------------------------->

@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
   
+  # Connfirm that a username has been entered and is unique. 
   validates_presence_of :username
   validates_uniqueness_of :username
   
@@ -33,6 +34,7 @@ class User < ActiveRecord::Base
     end
   end
   
+  # Get user to enter password field 
   def password_required?
     super && provider.blank?
   end

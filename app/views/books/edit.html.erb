@@ -1,4 +1,10 @@
+
+<!--EDIT BOOK-->
+<!--Display form of parameters to let user make any changes to the book they added-->
+<!--Can only edit books they have added themselves-->
+<h1><p style="color:white;">Edit Book</p></h1>
 <div class = "center jumbotron">
+
 <%= simple_form_for @book, :html => {:multipart => true} do |f| %>
    <% if @book.errors.any? %>
     <h1>Please fix the following error(s).</h1>

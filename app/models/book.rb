@@ -3,6 +3,8 @@ class Book < ActiveRecord::Base
     belongs_to :department
     has_many :reviews
     
+    # Validate parameters user set to database standards 
+    
     has_attached_file :avatar, :styles => { :medium => "250x350>", :thumb => "325x475" }, :default_url => "bookcover.jpg"
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
     

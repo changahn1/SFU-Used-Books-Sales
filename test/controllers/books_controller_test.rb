@@ -60,7 +60,7 @@ class BooksControllerTest < ActionController::TestCase
  
 
   test "should not update event" do
-    # Not logged in, can not edit/delete events.
+    # Not logged in, can not edit/delete books.
     patch :update, id: Book.first.id, book: {
                                               title: Book.first.title,
                                               cnumber: Book.first.cnumber,
@@ -69,7 +69,7 @@ class BooksControllerTest < ActionController::TestCase
                                               campus: Book.first.campus,
                                               price: Book.first.price,
                                               department_id: Book.first.department_id }
-    assert_redirected_to user_session_path # event_path(assigns(:event))
+    assert_redirected_to user_session_path 
   end
   
 

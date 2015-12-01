@@ -1,3 +1,7 @@
+
+<!--Book Form - Used to get user to input book parameters-->
+<!--Form is used in the new.html.erb for books-->
+
 <div class = "center jumbotron">
 <%= simple_form_for @book, :html => {:multipart => true} do |f| %>
     <% if @book.errors.any? %>
