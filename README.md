@@ -8,10 +8,10 @@ As the name suggests, this webapp is meant for anyone who intends to buy/sell te
 	
 Competitive Analysis
 
-SFU Used Books Sales
-Books2go.ca
-Abebooks.com
-BookFinder.com
+SFU Used Books Sales, 
+Books2go.ca, 
+Abebooks.com, 
+BookFinder.com.
 
 Overview
 
