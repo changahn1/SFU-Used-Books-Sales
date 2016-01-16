@@ -32,16 +32,5 @@ Weakness
 Search based on SFU API only. Only SFU students will find it easier to search books.
 Search of textbooks only based on the University and Book name.
 Not focus on a group of users(University students). Didn’t provide relative search functions for University Courses
-Not provide interface to public visitors who don’t have an exactly book to search.  
-
-Opportunities
-
-1) The same model can be applied to each and every institution
-2) Platform for sales of digital textbooks and handwritten class notes
-1) Usable by all the students studying in canadian institutions
-1) Frequent sellers/authors can create their paid seller profile and start using this as their online bookstore.
-2) Buyers have a lot of advanced search options and huge collection to choose from.
-1) Very simple layout for searching textbooks.
-2) 150 million books to search from. 
-
+Not provide interface to public visitors who don’t have an exact book to search.  
 
